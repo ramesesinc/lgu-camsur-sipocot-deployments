@@ -2,6 +2,7 @@ alter table account_incometarget add CONSTRAINT `fk_account_incometarget_itemid`
    FOREIGN KEY (`itemid`) REFERENCES `account` (`objid`)
 ;
 
+/*
 CREATE TABLE `business_closure` ( 
    `objid` varchar(50) NOT NULL, 
    `businessid` varchar(50) NOT NULL, 
@@ -20,14 +21,12 @@ CREATE TABLE `business_closure` (
    CONSTRAINT `fk_business_closure_businessid` FOREIGN KEY (`businessid`) REFERENCES `business` (`objid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 ; 
+*/
 
-create UNIQUE index `uix_code` on businessrequirementtype (`code`)
-; 
-create UNIQUE index `uix_title` on businessrequirementtype (`title`)
-; 
+-- create UNIQUE index `uix_code` on businessrequirementtype (`code`); 
+-- create UNIQUE index `uix_title` on businessrequirementtype (`title`); 
 
-create UNIQUE index `uix_name` on businessvariable (`name`)
-;
+-- create UNIQUE index `uix_name` on businessvariable (`name`);
 
 CREATE TABLE `cashreceipt_group` ( 
    `objid` varchar(50) NOT NULL, 
@@ -54,7 +53,7 @@ CREATE TABLE `cashreceipt_groupitem` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 ; 
 
-/*
+
 CREATE TABLE `cashreceipt_plugin` ( 
    `objid` varchar(50) NOT NULL, 
    `connection` varchar(150) NOT NULL, 
@@ -62,7 +61,7 @@ CREATE TABLE `cashreceipt_plugin` (
    CONSTRAINT `pk_cashreceipt_plugin` PRIMARY KEY (`objid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 ; 
-*/
+
 
 -- create unique index uix_receiptid on cashreceipt_void (receiptid); 
 
@@ -77,12 +76,9 @@ CREATE TABLE `entity_mapping` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 ; 
 
-alter table lob add _ukey varchar(50) not null default ''
-;
-update lob set _ukey=objid where _ukey=''
-;
-create unique index uix_name on lob (name, _ukey)
-;
+-- alter table lob add _ukey varchar(50) not null default '';
+-- update lob set _ukey=objid where _ukey='';
+-- create unique index uix_name on lob (name, _ukey);
 
 DROP TABLE IF EXISTS `paymentorder`
 ;
@@ -120,7 +116,11 @@ CREATE TABLE `paymentorder` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 ; 
 
-/*
+
+drop table if exists `sync_data_forprocess`; 
+drop table if exists `sync_data_pending`;
+drop table if exists `sync_data`;
+
 CREATE TABLE `sync_data` ( 
    `objid` varchar(50) NOT NULL, 
    `parentid` varchar(50) NOT NULL, 
@@ -162,6 +162,6 @@ CREATE TABLE `sync_data_pending` (
    CONSTRAINT `fk_sync_data_pending_sync_data` FOREIGN KEY (`objid`) REFERENCES `sync_data` (`objid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 ; 
-*/
+
 
 -- CREATE UNIQUE INDEX `uix_ruleset_name` ON sys_rule (`ruleset`,`name`);
