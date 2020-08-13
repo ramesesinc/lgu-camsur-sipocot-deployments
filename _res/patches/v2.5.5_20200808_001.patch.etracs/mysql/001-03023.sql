@@ -5,19 +5,19 @@
 *BATCH GR UPDATES
 *
 =====================================================*/
-drop view if existsvw_batchgr_error
+drop view if exists vw_batchgr_error
 ;
 drop table if exists batchgr_error
 ;
-drop table if existsbatchgr_items_forrevision
+drop table if exists batchgr_items_forrevision
 ;
-drop table if existsbatchgr_log
+drop table if exists batchgr_log
 ;
-drop table if existsbatchgr_forprocess
+drop table if exists batchgr_forprocess
 ;
-drop table if existsbatchgr_item
+drop table if exists batchgr_item
 ;
-drop table if existsbatchgr
+drop table if exists batchgr
 ;
 
 
@@ -81,15 +81,15 @@ create index `ix_pin` on batchgr_item (`pin`)
 
 
 alter table batchgr_item add constraint `fk_batchgr_item_objid` 
-	foreign key (`objid`) references `faas` (`objid`)
+  foreign key (`objid`) references `faas` (`objid`)
 ;
 
 alter table batchgr_item add constraint `fk_batchgr_item_batchgr` 
-	foreign key (`parent_objid`) references `batchgr` (`objid`)
+  foreign key (`parent_objid`) references `batchgr` (`objid`)
 ;
 
 alter table batchgr_item add constraint `fk_batchgr_item_newfaasid` 
-	foreign key (`newfaasid`) references `faas` (`objid`)
+  foreign key (`newfaasid`) references `faas` (`objid`)
 ;
 
 
@@ -105,14 +105,14 @@ create index `fk_batchgr_forprocess_parentid` on batchgr_forprocess(`parent_obji
 ;
 
 alter table batchgr_forprocess add constraint `fk_batchgr_forprocess_parentid` 
-	foreign key (`parent_objid`) references `batchgr` (`objid`)
+  foreign key (`parent_objid`) references `batchgr` (`objid`)
 ;
 
 alter table batchgr_forprocess add constraint `fk_batchgr_forprocess_objid` 
-	foreign key (`objid`) references `batchgr_item` (`objid`)
+  foreign key (`objid`) references `batchgr_item` (`objid`)
 ;
 
-	
+  
 
 /* 254032-03019.02 */
 
@@ -1206,8 +1206,9 @@ alter table rptledger_item
   add toqtr int;
 
 
-
-
+drop table if exists sync_data_forprocess;
+drop table if exists sync_data_pending;
+drop table if exists sync_data;
 
 CREATE TABLE `sync_data` (
   `objid` varchar(50) NOT NULL,

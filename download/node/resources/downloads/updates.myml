@@ -1,6 +1,6 @@
 app: 
   env:
-    "app.title" : "ETRACS 2.5 build 05 20200623 (MUNICIPALITY OF SIPOCOT)"
+    "app.title" : "ETRACS 2.5 build 05 20200813 (MUNICIPALITY OF SIPOCOT)"
     "app.host" : "${app_server_ip}:8070"
     "app.cluster" : "osiris3"
     "app.context" : "etracs25"
@@ -69,3 +69,5 @@ app:
     - { order: 252, version: 2.51, file: "modules/bpls/rameses-gov-etracs-bpls-reports.jar" } 
     # queue
     - { order: 260, version: 2.51, file: "modules/queue/rameses-queueing.jar" }
+    # ctc
+    - { order: 300, version: 2.51, file: "modules/ctc/rameses-gov-etracs-ctc.jar" }
