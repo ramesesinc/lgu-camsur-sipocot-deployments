@@ -13,6 +13,7 @@ INSERT INTO `sys_rule` (`objid`, `state`, `name`, `ruleset`, `rulegroup`, `title
 
 update sys_rule set state = 'DRAFT' where ruleset='ctcbilling'; 
 
+
 INSERT INTO `sys_rule_condition` (`objid`, `parentid`, `fact_name`, `fact_objid`, `varname`, `pos`, `ruletext`, `displaytext`, `dynamic_datatype`, `dynamic_key`, `dynamic_value`, `notexist`) VALUES ('RCOND-b880e40:166bdcfa0cb:-7749', 'RUL-b880e40:166bdcfa0cb:-77af', 'ctc.facts.CorporateCTC', 'ctc.facts.CorporateCTC', NULL, '0', NULL, NULL, NULL, NULL, NULL, '0');
 INSERT INTO `sys_rule_condition` (`objid`, `parentid`, `fact_name`, `fact_objid`, `varname`, `pos`, `ruletext`, `displaytext`, `dynamic_datatype`, `dynamic_key`, `dynamic_value`, `notexist`) VALUES ('RCOND6729cd8:166bdeb1f30:-5e3b', 'RUL6729cd8:166bdeb1f30:-5edf', 'ctc.facts.CorporateCTC', 'ctc.facts.CorporateCTC', NULL, '1', NULL, NULL, NULL, NULL, NULL, '0');
 INSERT INTO `sys_rule_condition` (`objid`, `parentid`, `fact_name`, `fact_objid`, `varname`, `pos`, `ruletext`, `displaytext`, `dynamic_datatype`, `dynamic_key`, `dynamic_value`, `notexist`) VALUES ('RCOND7ff4a1a7:164fdd7d64a:-7ba1', 'RUL7ff4a1a7:164fdd7d64a:-7f02', 'ctc.facts.IndividualCTC', 'ctc.facts.IndividualCTC', 'ICTC', '0', NULL, NULL, NULL, NULL, NULL, '0');
