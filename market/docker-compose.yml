@@ -25,3 +25,9 @@ services:
       - ../_res/connections:/apps/server/services/apps/enterprise/connections
       - ./mainds:/apps/server/services/datasources/mainds
       - ./server/rameses-gov-etracs-market-services.jar:/apps/server/services/apps/enterprise/modules/rameses-gov-etracs-market-services.jar
+
+      - ./_dev_lib/db-dialect.jar:/apps/server/services/lib/db-dialect.jar
+      - ./_dev_lib/rameses-common2.jar:/apps/server/services/lib/rameses-common2.jar
+      - ./_dev_lib/rameses-main-bootloader.jar:/apps/server/services/lib/rameses-main-bootloader.jar
+      - ./_dev_lib/rameses-osiris3-core2.jar:/apps/server/services/lib/rameses-osiris3-core2.jar
+      - ./_dev_lib/rameses-osiris3-server.jar:/apps/server/services/lib/rameses-osiris3-server.jar
