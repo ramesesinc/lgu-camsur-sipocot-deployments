@@ -138,8 +138,10 @@ class MarketBillingService {
 
 		if(include_rental) {
 			def bitems = bill.billitems.findAll{ it.type == 'market_rental' }.sort{it.fromdate}; 
-			bill.fromdate = bitems.first().fromdate;
-			bill.todate = bitems.last().todate;		
+			if ( bitems ) {
+				bill.fromdate = bitems.first().fromdate;
+				bill.todate = bitems.last().todate;		
+			}
 		}
 
 		bill.billdate = todate;
